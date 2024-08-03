@@ -12,4 +12,9 @@ jobs:
       - name: Cypress install
         uses: cypress-io/github-action@v6
         with:
-          runTests: false
+          install: true
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          runTests: true
