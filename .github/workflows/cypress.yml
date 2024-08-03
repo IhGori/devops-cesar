@@ -21,3 +21,11 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           runTests: true
+
+      - name: Upload Cypress screenshots and videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
