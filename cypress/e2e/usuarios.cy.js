@@ -113,17 +113,17 @@ describe('Cadastro Simples de Usuário', () => {
     })
   })
 
-  // Buscar usuario que nao existe
+  // Teste para buscar usuário que não existe e forçar screenshot da action
   it('Buscar usuario que não existe', () => {
     cy.request({
       method: 'GET',
-      url: `/usuarios/${userID}`,
+      url: '/usuarios/999999',
       headers: {
         'Accept': 'application/json'
       },
       failOnStatusCode: false
     }).should((response) => {
-      expect(response.status).to.eq(400);
+      expect(response.status).to.eq(500);
       expect(response.body).to.have.property('message', 'Usuário não encontrado');
     })
   })
